@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BmiAppMAUI.MainPage">
+
+    <ScrollView>
+        <FlexLayout
+            Direction="Column"
+            JustifyContent="SpaceEvenly"
+            Padding="40"
+        >
+            <StackLayout>
+                <Label
+                    Text="Hi there, how tall are you?"
+                    FontSize="Large"
+                    Padding="40"
+                />
+                <Label
+                    Text="{Binding Source={x:Reference SliderHeight}, Path=Value, StringFormat='{0:F0} cm'}"
+                    FontSize="Title"
+                    TextColor="#00161f"
+                />
+                <Slider
+                    x:Name ="SliderHeight"
+                    Minimum="35"
+                    Maximum="240"
+                    Value="{Binding Height}"
+                />
+            </StackLayout>
+            <StackLayout>
+                <Label
+                    Text="Hi there, much do you weigh?"
+                    FontSize="Large"
+                    Padding="40"
+                />
+                <Label
+                    Text="{Binding Source={x:Reference SliderWeight}, Path=Value, StringFormat='{0:F0} kg'}"
+                    FontSize="Title"
+                    TextColor="#00161f"
+                />
+                <Slider
+                    x:Name ="SliderWeight"
+                    Minimum="35"
+                    Maximum="320"
+                    Value="{Binding Weight}"
+                />
+            </StackLayout>
+            <StackLayout>
+                <Label
+                    Text="Your BMI is"
+                    HorizontalOptions="Center"
+                    TextColor="#00161f"
+                />
+                <Label
+                    Text="{Binding Bmi}"
+                    HorizontalOptions="Center"
+                    TextColor="#00161f"
+                />
+                <Label
+                    Text="{Binding Classification}"
+                    HorizontalOptions="Center"
+                    TextColor="#00161f"
+                />
+            </StackLayout>
+        </FlexLayout>
+    </ScrollView>
+
+</ContentPage>
